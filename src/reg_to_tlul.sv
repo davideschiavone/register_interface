@@ -6,17 +6,19 @@
  * Reg Interface to Tile-Link
  */
 
-module reg_to_tlul
-  import tlul_pkg::*;
-  import reg_pkg::*;
-(
+module reg_to_tlul #(
+  parameter type req_t = logic,
+  parameter type rsp_t = logic,
+  parameter type tl_h2d_t = logic,
+  parameter type tl_d2h_t = logic
+) (
     // TL-UL interface
     output tl_h2d_t tl_o,
     input  tl_d2h_t tl_i,
 
     // Register interface
-    input  reg_req_t reg_req_i,
-    output reg_rsp_t reg_rsp_o
+    input  req_t reg_req_i,
+    output rsp_t reg_rsp_o
 );
 
 
